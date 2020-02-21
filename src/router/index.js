@@ -1,15 +1,77 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-// import stuIndex from '@/components/student/index'
-
 Vue.use(Router)
-
 export default new Router({
     routes:[
         {
             path:'/',
-            component:()=>import('../components/student/index')
+            component:()=>import('../view/student/index')
+        },
+        {
+            path:'/classRoom',
+            component:()=>import('../view/student/classRoom')
+        },
+        {
+            path:'/class',
+            component:()=>import('../view/student/intoClass/index.vue')
+        },
+        {
+            path:'/homework',
+            component:()=>import('../view/student/intoClass/submitWork.vue'),
+            children:[
+                {
+                    path:'submit',
+                    alias:'/submit',
+                    component:()=>import('../view/student/intoClass/homeWork/submit.vue')
+                },
+                {
+                    path:'watchVideo',
+                    alias:'/watchVideo',
+                    component:()=>import('../view/student/intoClass/homeWork/watchVideo.vue')
+                },
+                {
+                    path:'viewJob',
+                    alias:'/viewJob',
+                    component:()=>import('../view/student/intoClass/homeWork/viewJob.vue')
+                }
+            ]
+        },
+        {
+            path:'/scoreIndex',
+            component:()=>import('../view/student/intoClass/score/index.vue'),
+            children:[
+                {
+                    path:'/score',
+                    component:()=>import('../view/student/intoClass/score/scores/score.vue'),
+                    children:[
+                        {
+                            path:'homework',
+                            name:'homework',
+                            component:()=>import('../view/student/intoClass/score/scores/homeworkScore.vue')
+                        },
+                        {
+                            path:'test',
+                            name:'test',
+                            component:()=>import('../view/student/intoClass/score/scores/testScore.vue')
+                        },
+                        {
+                            path:'classPerformance',
+                            name:'classPerformance',
+                            component:()=>import('../view/student/intoClass/score/scores/classScore.vue')
+                        },
+                        {
+                            path:'final',
+                            name:'final',
+                            component:()=>import('../view/student/intoClass/score/scores/finalScore.vue')
+                        },
+                        {
+                            path:'termReview',
+                            name:'termReview',
+                            component:()=>import('../view/student/intoClass/score/scores/termReviewScore.vue')
+                        }
+                    ]
+                }
+            ]
         }
     ]
 })
