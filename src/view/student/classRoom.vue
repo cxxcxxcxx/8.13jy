@@ -2,7 +2,7 @@
     <div class="content">
         <div class="head">
             <div class="left">
-                <div class="logo"></div>
+                <div class="logo" @click="goIndex"></div>
                 <div class="title">课堂</div>
             </div>
             <heads></heads>
@@ -140,6 +140,9 @@ export default {
         }
     },
     methods:{
+        goIndex(){
+            this.$router.replace('/')
+        },
         selectChild(index){
             this.selectedChild = index
         },

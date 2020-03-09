@@ -2,7 +2,7 @@
     <div class="content">
         <div class="head">
             <div class="left">
-                <img src="@/assets/student/icon_sy_fh_bt@3x.png" alt="">
+                <img @click="goBack" src="@/assets/student/icon_sy_fh_bt@3x.png" alt="">
             </div>
             <ul class="center">
                 <li :class="selectLi == index ? 'active' : ''" @click="selectNav(index)" v-for="(item,index) in nav" :key="'nav'+index"><span>{{item}}</span></li>
@@ -26,11 +26,29 @@ export default {
         }
     },
     mounted(){
-        console.log('index')
+        
     },
     methods:{
+        goBack(){
+            this.$router.push({path:'/class'})
+        },
         selectNav(index){
-            this.selectLi = index
+            if(this.selectLi == index){
+                return false
+            }else{
+                this.selectLi = index
+                if(index == 0){
+                    this.$router.replace({path:'/students'})
+                }else if(index == 1){
+                    this.$router.push({
+                        path:'/score/homework',
+                        query:{
+                            page:1
+                        }
+                    })
+                }
+            }
+            
         }
     }
 }
@@ -47,6 +65,7 @@ export default {
                 width: 8px;
                 height: 14px;
                 margin: 0 10px 0 9px;
+                cursor: pointer;
             }
         }
         ul.center{

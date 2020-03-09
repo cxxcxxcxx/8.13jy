@@ -25,6 +25,7 @@ export default {
         }
     },
     mounted(){
+        
     },
     methods:{
         goPage(i){
@@ -36,12 +37,13 @@ export default {
             this.routerChange()
         },
         next(){
+            console.log(this.page)
             this.page += 1
             this.routerChange()
         },
         routerChange(){
             this.name = this.$route.name
-            this.$router.push({
+            this.$router.replace({
                 path:'/score/'+this.name,
                 query:{
                     page:this.page
@@ -52,33 +54,35 @@ export default {
             this.selectScoreNav = index
             this.page = 1
             if(index == 0){
-                this.$router.push({
+                this.$router.replace({
                     path:'/score/homework',
                     query:{
                         page:this.page
                     }
                 })
             }else if(index == 1){
-                this.$router.push({
+                this.$router.replace({
                     path:'/score/test',
                     query:{
                         page:this.page
                     }
                 })
             }else if(index == 2){
-                this.$router.push({
+                this.$router.replace({
                     path:'/score/classPerformance',
                     query:{
                         page:this.page
                     }
                 })
             }else if(index == 3){
-                this.$router.push({
+                this.$router.replace({
                     path:'/score/final',
                     query:{
                         page:this.page
                     }
                 })
+            }else if(index == 4){
+                this.$router.replace('/score/termReview')
             }
         },
         selectNav(index){

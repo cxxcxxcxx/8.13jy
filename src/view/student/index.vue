@@ -2,7 +2,7 @@
     <div class="content">
         <div class="head">
             <div class="left">
-                <div class="logo"></div>
+                <div class="logo" @click="goIndex"></div>
                 <span @click="concat" class="concat">联系我们</span>
             </div>
             <heads></heads>
@@ -161,6 +161,9 @@ export default {
         
     },
     methods:{
+        goIndex(){
+            this.$router.replace('/')
+        },
         intoRoom(){
             this.$router.push('/classRoom')
         },
@@ -223,6 +226,7 @@ export default {
             display: flex;
             align-items: center;
             .logo{
+                cursor: pointer;
                 width: 109px;
                 height: 68px;
                 border-radius: 10px;

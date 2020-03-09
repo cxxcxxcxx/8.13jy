@@ -6,7 +6,7 @@ import './assets/style/reset.less'
 import './assets/style/common.less'
 import './assets/style/iconfont/iconfont.css'
 
-import { Menu} from 'ant-design-vue'
+import { Menu, Progress} from 'ant-design-vue'
 Vue.use(Menu)
 
 import { Upload, Dialog } from 'element-ui';

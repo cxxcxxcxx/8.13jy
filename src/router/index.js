@@ -72,6 +72,65 @@ export default new Router({
                     ]
                 }
             ]
+        },
+        {
+            path:'/students',
+            component:()=>import('../view/student/intoClass/score/stuPeople/people.vue')
+        },
+        {
+            path:'/stuPerformance',
+            component:()=>import('../view/student/intoClass/stuPerformance/performance.vue')
+        },
+        {
+            path:'/jobPerformance',
+            component:()=>import('../view/student/intoClass/jobPerformance/jobPerformance.vue')
+        },
+        {
+            path:'/testPerformance',
+            component:()=>import('../view/student/intoClass/testPerformance/testPerformance.vue')
+        },
+        {
+            path:'/testing',
+            name:'testing',
+            component:()=>import('../view/student/intoClass/testPerformance/testing.vue')
+        },
+        {
+            path:'/evaluation',
+            component:()=>import('../view/student/intoClass/teacherEvaluation/evaluation.vue')
+        },
+        {
+            path:'/material',
+            component:()=>import('../view/student/intoClass/material/material.vue')
+        },
+        {
+            path:'/materialDetail',
+            component:()=>import('../view/student/intoClass/material/materialDetail.vue')
+        },
+        {
+            path:'/notice',
+            component:()=>import('../view/student/intoClass/notice/notice.vue')
+        },
+        {
+            path:'/noticeDetail',
+            component:()=>import('../view/student/intoClass/notice/noticeDetail.vue')
+        },
+        {
+            path:'/luckDrawIndex',
+            component:()=>import('../view/student/intoClass/luckDraw/index.vue'),
+            children:[
+                {
+                    path:'/luckDraw',
+                    component:()=>import('../view/student/intoClass/luckDraw/luckDraw.vue')
+                },
+                {
+                    path:'/draw/:id',
+                    component:()=>import('../view/student/intoClass/luckDraw/draw.vue')
+                }
+            ]
+        },
+        {
+            path:'/errorSubject',
+            component:()=>import('../view/student/intoClass/errorSubject/error.vue')
         }
     ]
 })

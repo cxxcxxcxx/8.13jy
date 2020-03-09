@@ -2,7 +2,7 @@
     <div class="content">
         <div class="head">
             <div class="left">
-                <span>课堂</span>
+                <span @click="goBack">课堂</span>
                 <img src="../../../assets/student/icon_sy_xyg@3x.png" alt="">
                 <span>一年级语文</span>
             </div>
@@ -35,8 +35,8 @@ import heads from '@/components/head'
 import courseware from './indexComponent/courseware'
 import homework from './indexComponent/homework'
 export default {
-     components:{heads, courseware, homework},
-     data(){
+    components:{heads, courseware, homework},
+    data(){
          return{
              navList:['课件互动','作业'],
              navSelected:0,
@@ -53,9 +53,12 @@ export default {
                  {name:'考勤',img:require('../../../assets/student/kaoqin_03.png'),color:'#169bd5'},
              ]
          }
-     },
-     methods:{
-         goItem(name){
+    },
+    methods:{
+        goBack(){
+            this.$router.replace('/classRoom')
+        },
+        goItem(name){
             if(name == '成绩'){
                 this.$router.push({
                     path:'/score/homework',
@@ -63,12 +66,29 @@ export default {
                         page:1
                     }
                 })
+            }else if(name == '课堂表现'){
+                this.$router.push({path:'/stuPerformance'})
+            }else if(name == '作业表现'){
+                this.$router.push({path:'/jobPerformance'})
+            }else if(name == '测试'){
+                this.$router.push({path:'/testPerformance'})
+            }else if(name == '教师评价'){
+                this.$router.push({path:'/evaluation'})
+            }else if(name == '资料'){
+                this.$router.push({path:'/material'})
+            }else if(name == '公告'){
+                this.$router.push({path:'/notice'})
+            }else if(name == '抽奖'){
+                this.$router.push({path:'/luckDraw'})
+            }else if(name == '错题'){
+                this.$router.push({path:'/errorSubject'})
             }
-         },
-         navChange(index){
+
+        },
+        navChange(index){
              this.navSelected = index
-         }
-     }
+        }
+    }
 }
 </script>
 
@@ -81,6 +101,7 @@ export default {
             align-items: center;
             span{
                font-size: 19px;
+               cursor: pointer;
             }
             img{
                 width: 8px;
