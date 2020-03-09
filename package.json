@@ -1,0 +1,30 @@
+{
+  "name": "default",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "element-ui": "^2.13.0",
+    "fabric": "^4.0.0-beta.7",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.1",
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "jquery": true
+    }
+  }
+}
